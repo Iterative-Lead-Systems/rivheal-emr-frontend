@@ -1,40 +1,23 @@
 import React, { useState, useMemo } from 'react';
 import { useAuthStore } from '@/stores/auth.store';
 import { useUIStore } from '@/stores/ui.store';
-import { formatDate, formatCurrency, cn } from '@/utils';
+import { formatDate, cn } from '@/utils';
 import {
   BedDouble,
   Search,
-  Plus,
   Eye,
-  Edit2,
   UserPlus,
-  UserMinus,
   Users,
-  Clock,
-  Calendar,
-  AlertTriangle,
   CheckCircle,
-  XCircle,
   Activity,
   Thermometer,
   Heart,
   Droplet,
   FileText,
-  Clipboard,
-  ArrowRightLeft,
   LogOut,
-  Loader2,
   X,
-  ChevronDown,
   Building2,
-  Stethoscope,
   Pill,
-  Syringe,
-  ClipboardList,
-  MessageSquare,
-  Bell,
-  Filter,
 } from 'lucide-react';
 
 type BedStatus = 'available' | 'occupied' | 'reserved' | 'maintenance' | 'cleaning';

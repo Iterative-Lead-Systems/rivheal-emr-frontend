@@ -107,20 +107,21 @@ export const offlineDb = {
   },
 
   async searchPatients(query: string, limit = 20): Promise<OfflinePatient[]> {
-    const lowerQuery = query.toLowerCase();
-    return db.patients
-      .filter((patient) => {
-        return (
-          patient.firstName.toLowerCase().includes(lowerQuery) ||
-          patient.lastName.toLowerCase().includes(lowerQuery) ||
-          patient.rivhealId.toLowerCase().includes(lowerQuery) ||
-          patient.phone.includes(query) ||
-          (patient.email && patient.email.toLowerCase().includes(lowerQuery))
-        );
-      })
-      .limit(limit)
-      .toArray();
-  },
+  const lowerQuery = query.toLowerCase();
+
+  return db.patients
+    .filter((patient) => {
+      return (
+        patient.firstName.toLowerCase().includes(lowerQuery) ||
+        patient.lastName.toLowerCase().includes(lowerQuery) ||
+        patient.rivhealId.toLowerCase().includes(lowerQuery) ||
+        patient.phone.includes(query) ||
+        patient.email?.toLowerCase().includes(lowerQuery) === true
+      );
+    })
+    .limit(limit)
+    .toArray();
+},
 
   async savePatient(patient: OfflinePatient): Promise<string> {
     const now = new Date().toISOString();

@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useAuthStore } from '@/stores/auth.store';
 import { useUIStore } from '@/stores/ui.store';
-import { formatDate, cn } from '@/utils';
+import { cn } from '@/utils';
 import {
   Siren,
   Search,
@@ -11,9 +11,6 @@ import {
   MapPin,
   Clock,
   AlertTriangle,
-  AlertCircle,
-  CheckCircle,
-  XCircle,
   Activity,
   Heart,
   Users,
@@ -21,21 +18,13 @@ import {
   Navigation,
   Zap,
   Timer,
-  BedDouble,
   Stethoscope,
-  Syringe,
-  Loader2,
   X,
-  ChevronRight,
   RefreshCw,
   Send,
   Radio,
   Thermometer,
   Droplet,
-  Brain,
-  Bone,
-  Baby,
-  Shield,
 } from 'lucide-react';
 
 type TriageLevel = 'resuscitation' | 'emergency' | 'urgent' | 'standard' | 'non_urgent';

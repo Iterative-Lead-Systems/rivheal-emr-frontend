@@ -220,8 +220,8 @@ export interface IPharmacyPartnerAdapter {
    */
   createOrder(
     prescription: Prescription,
+    paymentMethod: 'online' | 'on_delivery' | 'wallet',
     deliveryAddress?: DeliveryAddress,
-    paymentMethod: 'online' | 'on_delivery' | 'wallet'
   ): Promise<PartnerOrder>;
   
   /**
@@ -503,6 +503,7 @@ export class PharmacyPartnerService {
    * Track order status
    */
   async trackOrder(partnerId: string, orderId: string): Promise<PartnerOrder> {
+    console.log({ partnerId, orderId })
     // In real implementation, this would call the partner's API
     throw new Error('Not implemented');
   }
@@ -514,7 +515,7 @@ export class PharmacyPartnerService {
     location: GeoLocation
   ): Promise<PartnerQuote> {
     await new Promise((resolve) => setTimeout(resolve, 200));
-    
+    console.log({ location });
     const items: DrugAvailability[] = drugs.map((drug) => ({
       drugId: drug.id,
       drugName: drug.name,

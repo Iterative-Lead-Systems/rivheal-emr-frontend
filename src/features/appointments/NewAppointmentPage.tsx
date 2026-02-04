@@ -11,7 +11,6 @@ import {
   Search,
   User,
   Calendar,
-  Clock,
   Stethoscope,
   Check,
   Loader2,
@@ -36,6 +35,7 @@ const mockPatients: Patient[] = [
     emergencyContact: { name: '', relationship: '', phone: '' },
     createdAt: '',
     updatedAt: '',
+    country: ''
   },
   {
     id: '2',
@@ -50,6 +50,7 @@ const mockPatients: Patient[] = [
     emergencyContact: { name: '', relationship: '', phone: '' },
     createdAt: '',
     updatedAt: '',
+    country: ''
   },
 ];
 

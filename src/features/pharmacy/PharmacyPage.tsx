@@ -6,9 +6,7 @@ import { formatDate, formatCurrency, cn } from '@/utils';
 import {
   Pill,
   Search,
-  Filter,
   Clock,
-  User,
   Check,
   AlertCircle,
   AlertTriangle,
@@ -17,15 +15,11 @@ import {
   Eye,
   Printer,
   RefreshCw,
-  ChevronDown,
-  ChevronUp,
   Loader2,
-  ShoppingCart,
   ExternalLink,
   Ban,
   CheckCircle,
   XCircle,
-  Box,
 } from 'lucide-react';
 
 type PrescriptionStatus = 'pending' | 'processing' | 'dispensed' | 'partially_dispensed' | 'cancelled' | 'sent_to_pharmarun';
@@ -525,7 +519,7 @@ export const PharmacyPage: React.FC = () => {
                           <div className="flex items-center gap-2">
                             <span className="font-medium text-gray-900">{rx.items.length} items</span>
                             {hasStockIssue && (
-                              <AlertTriangle size={14} className="text-orange-500" title="Stock issues" />
+                              <AlertTriangle size={14} className="text-orange-500" />
                             )}
                           </div>
                           <p className="text-xs text-gray-500 truncate max-w-[150px]">

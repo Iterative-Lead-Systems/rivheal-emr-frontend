@@ -1,16 +1,13 @@
 import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
 import { useAuthStore } from '@/stores/auth.store';
 import { useUIStore } from '@/stores/ui.store';
 import { formatDate, cn } from '@/utils';
 import {
   Users,
   Search,
-  Filter,
   Plus,
   Eye,
   Edit2,
-  Trash2,
   Phone,
   Mail,
   MapPin,
@@ -25,12 +22,9 @@ import {
   UserX,
   MoreVertical,
   Download,
-  Upload,
   Building2,
   Stethoscope,
-  Loader2,
   X,
-  ChevronDown,
   BadgeCheck,
   FileText,
   Activity,

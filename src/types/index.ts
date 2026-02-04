@@ -268,7 +268,9 @@ export type AppointmentType =
   | 'review'
   | 'emergency'
   | 'consultation'
-  | 'procedure';
+  | 'procedure'
+  | 'new_patient'
+  | 'telemedicine';
 
 export interface Appointment extends AuditableEntity {
   patientId: string;
@@ -279,11 +281,13 @@ export interface Appointment extends AuditableEntity {
   doctorId?: string;
   doctor?: Staff;
   appointmentDate: string;
-  startTime: string;
+  appointmentTime: string; // Time in HH:mm format
+  startTime?: string;
   endTime?: string;
   type: AppointmentType;
   status: AppointmentStatus;
   reasonForVisit?: string;
+  chiefComplaint?: string;
   notes?: string;
   queueNumber?: number;
   checkedInAt?: string;

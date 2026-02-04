@@ -1,7 +1,7 @@
 import React from 'react';
 import { cn } from '@/utils';
 import { useAuthStore } from '@/stores/auth.store';
-import { Building2, MapPin, Check } from 'lucide-react';
+import { Building2, MapPin } from 'lucide-react';
 import type { Branch } from '@/types';
 
 export const BranchSelectionModal: React.FC = () => {

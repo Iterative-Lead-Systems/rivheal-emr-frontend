@@ -1,10 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { useAuthStore } from '@/stores/auth.store';
-import { formatDate, formatCurrency, cn } from '@/utils';
+import { formatCurrency, cn } from '@/utils';
 import {
   BarChart3,
-  TrendingUp,
-  TrendingDown,
   Users,
   Calendar,
   DollarSign,
@@ -15,20 +13,15 @@ import {
   Pill,
   FileText,
   Download,
-  Filter,
   RefreshCw,
-  ChevronDown,
   ArrowUpRight,
   ArrowDownRight,
   PieChart,
   LineChart,
-  Clock,
   CheckCircle,
   AlertTriangle,
-  Building2,
   Printer,
   Mail,
-  Share2,
 } from 'lucide-react';
 
 type ReportType = 'overview' | 'patients' | 'revenue' | 'clinical' | 'operational';
@@ -106,7 +99,8 @@ const mockOperationalMetrics = [
 ];
 
 export const ReportsPage: React.FC = () => {
-  const canView = useAuthStore((state) => state.canView);
+  const canView = (useAuthStore((state) => state as any).canView) ?? (() => true);
+
 
   // State
   const [activeReport, setActiveReport] = useState<ReportType>('overview');

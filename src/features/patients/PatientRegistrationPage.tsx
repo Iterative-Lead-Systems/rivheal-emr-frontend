@@ -11,17 +11,14 @@ import {
   ArrowLeft,
   User,
   Phone,
-  Mail,
-  MapPin,
   Heart,
   AlertTriangle,
   UserPlus,
   Check,
-  X,
   Loader2,
   Link as LinkIcon,
 } from 'lucide-react';
-import type { Patient, Gender, BloodGroup, MaritalStatus } from '@/types';
+import type { Patient } from '@/types';
 
 // Mock search results for demonstration
 const mockSearchResults: Patient[] = [

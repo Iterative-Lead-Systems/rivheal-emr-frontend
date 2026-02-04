@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthStore } from '@/stores/auth.store';
-import { formatDate, formatCurrency, cn } from '@/utils';
+import { cn } from '@/utils';
 import {
   Plus,
   Calendar,
@@ -9,17 +9,11 @@ import {
   Clock,
   User,
   Search,
-  Filter,
   ChevronLeft,
   ChevronRight,
-  MoreVertical,
   Check,
   X,
-  Phone,
-  MapPin,
-  AlertCircle,
   Play,
-  Pause,
   SkipForward,
 } from 'lucide-react';
 import type { Appointment, AppointmentStatus, AppointmentType } from '@/types';
@@ -34,6 +28,7 @@ const mockAppointments: (Appointment & { patientName: string; patientPhone: stri
     doctorId: 'd1',
     doctorName: 'Dr. Adaeze Obi',
     department: 'General Medicine',
+    hospitalId: 'h1',
     branchId: '1',
     appointmentDate: '2024-01-25',
     appointmentTime: '09:00',
@@ -53,6 +48,7 @@ const mockAppointments: (Appointment & { patientName: string; patientPhone: stri
     doctorId: 'd1',
     doctorName: 'Dr. Adaeze Obi',
     department: 'General Medicine',
+    hospitalId: 'h1',
     branchId: '1',
     appointmentDate: '2024-01-25',
     appointmentTime: '09:30',
@@ -72,6 +68,7 @@ const mockAppointments: (Appointment & { patientName: string; patientPhone: stri
     doctorId: 'd1',
     doctorName: 'Dr. Adaeze Obi',
     department: 'General Medicine',
+    hospitalId: 'h1',
     branchId: '1',
     appointmentDate: '2024-01-25',
     appointmentTime: '10:00',
@@ -91,6 +88,7 @@ const mockAppointments: (Appointment & { patientName: string; patientPhone: stri
     doctorId: 'd2',
     doctorName: 'Dr. Emeka Nnamdi',
     department: 'Cardiology',
+    hospitalId: 'h1',
     branchId: '1',
     appointmentDate: '2024-01-25',
     appointmentTime: '10:30',
@@ -110,6 +108,7 @@ const mockAppointments: (Appointment & { patientName: string; patientPhone: stri
     doctorId: 'd1',
     doctorName: 'Dr. Adaeze Obi',
     department: 'General Medicine',
+    hospitalId: 'h1',
     branchId: '1',
     appointmentDate: '2024-01-25',
     appointmentTime: '11:00',
@@ -128,6 +127,7 @@ const mockAppointments: (Appointment & { patientName: string; patientPhone: stri
     doctorId: 'd1',
     doctorName: 'Dr. Adaeze Obi',
     department: 'General Medicine',
+    hospitalId: 'h1',
     branchId: '1',
     appointmentDate: '2024-01-25',
     appointmentTime: '08:30',
@@ -147,6 +147,7 @@ const mockAppointments: (Appointment & { patientName: string; patientPhone: stri
     doctorId: 'd1',
     doctorName: 'Dr. Adaeze Obi',
     department: 'General Medicine',
+    hospitalId: 'h1',
     branchId: '1',
     appointmentDate: '2024-01-25',
     appointmentTime: '14:00',
@@ -174,8 +175,11 @@ const typeConfig: Record<AppointmentType, { label: string; color: string }> = {
   consultation: { label: 'Consultation', color: 'text-blue-600' },
   follow_up: { label: 'Follow-up', color: 'text-green-600' },
   new_patient: { label: 'New Patient', color: 'text-purple-600' },
+  new_visit: { label: 'New Visit', color: 'text-indigo-600' },
   emergency: { label: 'Emergency', color: 'text-red-600' },
   telemedicine: { label: 'Telemedicine', color: 'text-teal-600' },
+  review: { label: 'Review', color: 'text-amber-600' },
+  procedure: { label: 'Procedure', color: 'text-pink-600' },
 };
 
 type ViewMode = 'list' | 'queue';
@@ -431,8 +435,8 @@ export const AppointmentsPage: React.FC = () => {
                         </div>
                       </div>
                       <div className="bg-gray-50 rounded-lg p-4 mb-4">
-                        <p className="text-sm text-gray-500 mb-1">Chief Complaint</p>
-                        <p className="text-gray-900">{current.chiefComplaint}</p>
+                        <p className="text-sm text-gray-500 mb-1">Reason for Visit</p>
+                        <p className="text-gray-900">{current.reasonForVisit}</p>
                       </div>
                       <div className="flex items-center gap-3">
                         <Link
@@ -543,7 +547,7 @@ export const AppointmentsPage: React.FC = () => {
                   <th className="text-left px-4 py-3 text-xs font-medium text-gray-500 uppercase">Doctor</th>
                   <th className="text-left px-4 py-3 text-xs font-medium text-gray-500 uppercase">Type</th>
                   <th className="text-left px-4 py-3 text-xs font-medium text-gray-500 uppercase">Status</th>
-                  <th className="text-left px-4 py-3 text-xs font-medium text-gray-500 uppercase">Chief Complaint</th>
+                  <th className="text-left px-4 py-3 text-xs font-medium text-gray-500 uppercase">Reason for Visit</th>
                   <th className="text-left px-4 py-3 text-xs font-medium text-gray-500 uppercase">Actions</th>
                 </tr>
               </thead>
@@ -584,8 +588,8 @@ export const AppointmentsPage: React.FC = () => {
                         </span>
                       </td>
                       <td className="px-4 py-3">
-                        <p className="text-sm text-gray-600 truncate max-w-[200px]" title={apt.chiefComplaint}>
-                          {apt.chiefComplaint}
+                        <p className="text-sm text-gray-600 truncate max-w-[200px]" title={apt.reasonForVisit}>
+                          {apt.reasonForVisit}
                         </p>
                       </td>
                       <td className="px-4 py-3">

@@ -1,37 +1,27 @@
 import React, { useState, useMemo } from 'react';
 import { useAuthStore } from '@/stores/auth.store';
 import { useUIStore } from '@/stores/ui.store';
-import { formatDate, formatCurrency, cn } from '@/utils';
+import { formatDate, cn } from '@/utils';
 import {
   Scan,
   Search,
   Plus,
   Eye,
-  Edit2,
   Download,
-  Upload,
   Clock,
   CheckCircle,
   XCircle,
   AlertTriangle,
   FileText,
   Image,
-  Loader2,
   X,
-  ChevronDown,
   Calendar,
-  User,
-  Stethoscope,
   Activity,
-  Printer,
-  Share2,
   Maximize2,
   ZoomIn,
   ZoomOut,
   RotateCw,
   Layers,
-  Filter,
-  RefreshCw,
 } from 'lucide-react';
 
 type OrderStatus = 'pending' | 'scheduled' | 'in_progress' | 'completed' | 'reported' | 'cancelled';

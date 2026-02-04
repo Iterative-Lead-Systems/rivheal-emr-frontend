@@ -5,34 +5,23 @@ import { formatDate, formatCurrency, cn } from '@/utils';
 import {
   Package,
   Search,
-  Filter,
   Plus,
   Eye,
-  Edit2,
-  Trash2,
   AlertTriangle,
   CheckCircle,
   XCircle,
   Ban,
-  TrendingDown,
   TrendingUp,
-  Download,
-  Upload,
   BarChart3,
   ShoppingCart,
   Truck,
-  Calendar,
   Clock,
   Box,
   Syringe,
   Stethoscope,
   Shield,
   Loader2,
-  X,
-  ChevronDown,
   RefreshCw,
-  FileText,
-  QrCode,
 } from 'lucide-react';
 
 type StockStatus = 'in_stock' | 'low_stock' | 'out_of_stock' | 'expired' | 'expiring_soon';
@@ -360,7 +349,7 @@ export const InventoryPage: React.FC = () => {
   const [categoryFilter, setCategoryFilter] = useState<ItemCategory | ''>('');
   const [statusFilter, setStatusFilter] = useState<StockStatus | ''>('');
   const [selectedItem, setSelectedItem] = useState<InventoryItem | null>(null);
-  const [showDetailModal, setShowDetailModal] = useState(false);
+  const [, setShowDetailModal] = useState(false);
   const [showDispenseModal, setShowDispenseModal] = useState(false);
   const [dispenseQuantity, setDispenseQuantity] = useState('');
   const [dispenseDepartment, setDispenseDepartment] = useState('');

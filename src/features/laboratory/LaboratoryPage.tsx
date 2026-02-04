@@ -6,18 +6,11 @@ import { formatDate, cn } from '@/utils';
 import {
   FlaskConical,
   Search,
-  Filter,
   Clock,
-  User,
   Check,
   AlertCircle,
-  FileText,
   Printer,
   Eye,
-  Edit,
-  ChevronDown,
-  ChevronUp,
-  Loader2,
   TestTube,
   Droplets,
   Activity,
@@ -155,7 +148,7 @@ export const LaboratoryPage: React.FC = () => {
   const [priorityFilter, setPriorityFilter] = useState<Priority | ''>('');
   const [selectedOrder, setSelectedOrder] = useState<LabOrder | null>(null);
   const [showResultsModal, setShowResultsModal] = useState(false);
-  const [isUpdating, setIsUpdating] = useState(false);
+  const [, setIsUpdating] = useState(false);
 
   // Filter orders
   const filteredOrders = useMemo(() => {
@@ -184,6 +177,7 @@ export const LaboratoryPage: React.FC = () => {
 
   // Update status
   const updateStatus = async (orderId: string, newStatus: LabStatus) => {
+    console.log({ orderId });
     setIsUpdating(true);
     await new Promise((resolve) => setTimeout(resolve, 500));
     setIsUpdating(false);

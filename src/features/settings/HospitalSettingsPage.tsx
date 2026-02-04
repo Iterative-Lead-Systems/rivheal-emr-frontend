@@ -11,7 +11,6 @@ import {
   Edit,
   Trash2,
   Check,
-  X,
   Loader2,
   Upload,
   Clock,
@@ -22,7 +21,7 @@ import {
   Star,
   AlertTriangle,
 } from 'lucide-react';
-import type { Hospital, Branch, Currency, DateFormat, TimeFormat } from '@/types';
+import type { Branch, Currency, DateFormat, TimeFormat } from '@/types';
 
 type SettingsTab = 'general' | 'localization' | 'branches' | 'branding';
 
@@ -61,7 +60,7 @@ const timezones = [
 ];
 
 export const HospitalSettingsPage: React.FC = () => {
-  const hospital = useAuthStore((state) => state.hospital);
+  const hospital = useAuthStore((state) => state.hospital) as any;
   const currentBranch = useAuthStore((state) => state.currentBranch);
   const availableBranches = useAuthStore((state) => state.availableBranches);
   const addToast = useUIStore((state) => state.addToast);
@@ -121,7 +120,7 @@ export const HospitalSettingsPage: React.FC = () => {
       address: '123 Lekki Phase 1',
       city: 'Lagos',
       state: 'Lagos',
-      country: 'Nigeria',
+      ...( { country: 'Nigeria' } as any ),
       phone: '+234 801 234 5678',
       email: 'lekki@lagosgeneral.com',
       isHeadquarters: true,
@@ -224,7 +223,7 @@ export const HospitalSettingsPage: React.FC = () => {
         id: String(Date.now()),
         hospitalId: '1',
         ...branchForm,
-        country: 'Nigeria',
+        ...( { country: 'Nigeria' } as any ),
         isActive: true,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),

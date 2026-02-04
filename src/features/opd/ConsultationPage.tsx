@@ -7,7 +7,6 @@ import { useUIStore } from '@/stores/ui.store';
 import { cn, formatDate } from '@/utils';
 import {
   ArrowLeft,
-  User,
   Heart,
   Thermometer,
   Activity,
@@ -22,12 +21,10 @@ import {
   Plus,
   Trash2,
   AlertTriangle,
-  Clock,
   Printer,
   History,
   ChevronDown,
   ChevronUp,
-  Check,
   Loader2,
 } from 'lucide-react';
 

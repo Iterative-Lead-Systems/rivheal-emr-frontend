@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useAuthStore } from '@/stores/auth.store';
-import { formatDate, calculateAge, formatCurrency, cn } from '@/utils';
+import { formatDate, calculateAge, cn } from '@/utils';
 import {
   ArrowLeft,
   Edit,
@@ -9,20 +9,17 @@ import {
   Phone,
   Mail,
   MapPin,
-  Heart,
   AlertTriangle,
   User,
   FileText,
   Pill,
   FlaskConical,
   Receipt,
-  Clock,
   Plus,
-  MoreVertical,
   Droplet,
   Activity,
 } from 'lucide-react';
-import type { Patient, Visit } from '@/types';
+import type { Patient } from '@/types';
 
 // Mock patient data
 const mockPatient: Patient = {
@@ -116,6 +113,7 @@ export const PatientDetailPage: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const hospital = useAuthStore((state) => state.hospital);
+  console.log({ id, hospital });
   const canEdit = useAuthStore((state) => state.canEdit);
 
   const [activeTab, setActiveTab] = useState<TabKey>('overview');
