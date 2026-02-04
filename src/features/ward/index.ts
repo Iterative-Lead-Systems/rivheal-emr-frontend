@@ -1,0 +1,1 @@
+export { WardManagementPage } from './WardManagementPage';

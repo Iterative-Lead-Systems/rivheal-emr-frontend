@@ -1,0 +1,1 @@
+export { RadiologyPage } from './RadiologyPage';
