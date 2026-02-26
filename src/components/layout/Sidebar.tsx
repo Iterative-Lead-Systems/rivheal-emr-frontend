@@ -24,6 +24,10 @@ import {
   WifiOff,
   RefreshCw,
   Shield,
+  Home,
+  Building2,
+  GitBranch,
+  Bell,
 } from 'lucide-react';
 
 interface NavItem {
@@ -45,8 +49,12 @@ const navItems: NavItem[] = [
   { key: 'inventory', label: 'Inventory', icon: Package, path: '/inventory' },
   { key: 'ward', label: 'Ward Management', icon: BedDouble, path: '/ward' },
   { key: 'emergency', label: 'Emergency', icon: AlertTriangle, path: '/emergency' },
+  { key: 'homecare', label: 'Home Care', icon: Home, path: '/homecare' },
   { key: 'reports', label: 'Reports', icon: BarChart3, path: '/reports' },
   { key: 'staff', label: 'Staff Management', icon: UserCog, path: '/staff' },
+  { key: 'departments', label: 'Departments', icon: Building2, path: '/departments' },
+  { key: 'branches', label: 'Branches', icon: GitBranch, path: '/branches' },
+  { key: 'notifications', label: 'Notifications', icon: Bell, path: '/notifications' },
   { key: 'roles', label: 'Roles & Permissions', icon: Shield, path: '/roles' },
   { key: 'settings', label: 'Settings', icon: Settings, path: '/settings' },
 ];

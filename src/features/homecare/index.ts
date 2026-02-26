@@ -1,0 +1,1 @@
+export { HomecarePage } from './HomecarePage';

@@ -12,16 +12,20 @@ import { DashboardPage } from '@/features/dashboard';
 import { PatientListPage, PatientRegistrationPage, PatientDetailPage } from '@/features/patients';
 import { RolesPermissionsPage, HospitalSettingsPage } from '@/features/settings';
 import { AppointmentsPage, NewAppointmentPage } from '@/features/appointments';
-import { ConsultationPage } from '@/features/opd';
+import { ConsultationPage, OPDQueuePage } from '@/features/opd';
 import { LaboratoryPage } from '@/features/laboratory';
 import { PharmacyPage } from '@/features/pharmacy';
-import { BillingPage } from '@/features/billing';
+import { BillingPage, NewInvoicePage } from '@/features/billing';
 import { StaffManagementPage } from '@/features/staff';
 import { InventoryPage } from '@/features/inventory';
 import { WardManagementPage } from '@/features/ward';
 import { EmergencyPage } from '@/features/emergency';
 import { RadiologyPage } from '@/features/radiology';
 import { ReportsPage } from '@/features/reports';
+import { HomecarePage } from '@/features/homecare';
+import { DepartmentsPage } from '@/features/departments';
+import { BranchesPage } from '@/features/branches';
+import { NotificationsPage } from '@/features/notifications';
 
 // Protected Route wrapper
 const ProtectedRoute: React.FC = () => {
@@ -124,7 +128,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/opd',
-        element: <PlaceholderPage title="OPD Queue" />,
+        element: <OPDQueuePage />,
       },
       {
         path: '/opd/new',
@@ -152,7 +156,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/billing/new',
-        element: <PlaceholderPage title="Generate Invoice" />,
+        element: <NewInvoicePage />,
       },
       {
         path: '/inventory',
@@ -181,6 +185,22 @@ const router = createBrowserRouter([
       {
         path: '/settings',
         element: <HospitalSettingsPage />,
+      },
+      {
+        path: '/homecare',
+        element: <HomecarePage />,
+      },
+      {
+        path: '/departments',
+        element: <DepartmentsPage />,
+      },
+      {
+        path: '/branches',
+        element: <BranchesPage />,
+      },
+      {
+        path: '/notifications',
+        element: <NotificationsPage />,
       },
     ],
   },
